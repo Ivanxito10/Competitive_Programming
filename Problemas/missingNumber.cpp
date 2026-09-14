@@ -11,7 +11,7 @@ int main(){
 
     long long x;
 
-    if (!(cin >> x)) return 0;
+    cin >> x;
     
     long long suma = x*(x + 1) / 2;
 
