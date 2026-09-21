@@ -1,30 +1,38 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#define endl '\n';
+
 int main(){
 
-    int t;
-    long long n, max = 0;
+    int t, b = 0;
+    long long n, minx = LLONG_MAX,neg = 0, smax = 0;
     cin >> t; 
-    for (int i = 0; i < t; i++)
-    {   
-        cin >>n;
-        long long a[n];
-        for (long long i = 0; i < n; i++)
+    
+    while(t --){
+        cin >> n;
+        vector <int> v (n);
+
+        for (int i = 0; i < n; i++)
         {
-            cin >> a[i];
-        }
-        for (long long i = 0; i < n; i++)
-        {
-            if(((-1* a[i]) > a[i+1])){
-                a[i] = -1* a[i];
-                a[i+1] = -1* a[i+1];
+            cin >> v[i];
+            if (v[i] < 0){
+                neg ++;
             }
-            max+= a[i];
+            if(v[i] == 0){
+                b = 1;
+            }
+            smax += abs(v[i]);
+            minx = min(minx, abs((long long)v[i]));
         }
-        
-        cout << max << '\n';
-        max = 0;
+
+        if(b || (neg % 2) == 0){
+            cout << smax << endl;
+        }else{
+            smax -= 2*minx;
+            cout <<smax << endl;
+        }
+        smax = 0; minx = LLONG_MAX; neg = 0; b = 0;
     }
     
     return 0;
