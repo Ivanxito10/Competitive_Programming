@@ -16,7 +16,7 @@ int main(){
 
         if(b >= a){
             a = b;
-            cons++;
+            cons++; // continue deja de ejecutar lo demas
         }else{
             cons = 1;
             a = b;
@@ -28,3 +28,13 @@ int main(){
     
     return 0;
 }
+
+//basicos clase 2 - otra solucion 
+
+/*if ( nums[i] > nums[i+1] ){
+    a_sub = 1;
+    continue;
+}
+    a_sub++;
+    res = max(res,a_sub)    
+*/
